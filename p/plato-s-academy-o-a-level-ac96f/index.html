@@ -1,0 +1,193 @@
+<meta name="robots" content="noindex,nofollow"><title>Plato&#x27;s Academy (O/A Level) (draft preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: admissions notice hero with enquiry form, subject and fee table, small-batch promise, faculty, FAQ accordion, timings */
+:root{
+  --bg:#F6F8FC; --surface:#FFFFFF; --ink:#0F1A3A; --muted:#4E5877; --blue:#2342D6; --on-blue:#FFFFFF;
+  --hi:#FFD84A; --line:#D9DFEE; --soft:#E8EDFA;
+  --display:'Source Serif 4',Georgia,serif; --body:'Public Sans','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1226; --surface:#131C38; --ink:#EAEEFB; --muted:#A3AECF; --blue:#7C93FF; --on-blue:#0B1226;
+  --hi:#FFD84A; --line:#25305A; --soft:#1A2548; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1226; --surface:#131C38; --ink:#EAEEFB; --muted:#A3AECF; --blue:#7C93FF; --on-blue:#0B1226;
+  --hi:#FFD84A; --line:#25305A; --soft:#1A2548; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-bottom:84px}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;line-height:1.12;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.w{width:min(1060px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .w{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:13px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.3rem;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:var(--blue);color:var(--on-blue);font:600 1rem var(--body);padding:13px 22px;cursor:pointer;text-decoration:none}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;padding-block:60px;align-items:start}
+.notice{display:inline-block;background:var(--hi);color:#1B1700;font-weight:700;font-size:.92rem;padding:5px 12px;border-radius:4px;margin-bottom:20px}
+.hero h1{font-size:clamp(2.3rem,5.4vw,3.9rem)}
+.hero .lead{margin-top:20px;font-size:1.15rem;color:var(--muted);max-width:33em}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card h2{font-size:1.5rem;margin-bottom:4px}
+.card .sub{color:var(--muted);font-size:.95rem}
+label,legend{display:block;font-size:.88rem;font-weight:600;margin:14px 0 6px;padding:0}
+input[type=text],input[type=tel],select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:12px 14px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.chk{display:flex;flex-wrap:wrap;gap:8px}
+.chk label{display:inline-flex;align-items:center;gap:6px;margin:0;font-weight:500;background:var(--soft);padding:7px 12px;border-radius:999px;cursor:pointer}
+form .btn{width:100%;margin-top:20px}
+section{padding-block:56px;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:8px}
+.intro{color:var(--muted);max-width:36em;margin-bottom:28px}
+.tw{overflow-x:auto}
+.fees{width:100%;min-width:560px;border-collapse:collapse;background:var(--surface);border:1px solid var(--line)}
+.fees th,.fees td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.fees th{background:var(--soft);font-size:.88rem}
+.fees td:nth-child(n+3){font-variant-numeric:tabular-nums;white-space:nowrap}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.promise div{border-top:4px solid var(--hi);padding-top:14px}
+.promise b{display:block;font-family:var(--display);font-size:1.25rem;margin-bottom:4px}
+.promise span{color:var(--muted)}
+.fac{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.fac div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.fac b{display:block;font-family:var(--display);font-size:1.15rem}
+.fac span{color:var(--muted);font-size:.95rem}
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--blue)}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--muted);margin-top:10px;max-width:42em}
+.note{color:var(--muted);font-size:.85rem;margin-top:16px}
+footer{border-top:1px solid var(--line);padding-block:30px;color:var(--muted);font-size:.9rem}
+.bar{position:fixed;left:0;right:0;bottom:0;display:none;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line);z-index:6}
+.bar .btn{flex:1;padding:13px 10px}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);width:min(440px,100% - 32px);background:var(--ink);color:var(--bg);padding:14px 18px;border-radius:10px;font-size:.95rem;z-index:9}
+.art{display:block;width:min(100%,440px);height:auto;margin-top:34px}
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-bottom:56px}
+.badge{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.badge svg{flex:none;width:42px;height:42px;padding:9px;border-radius:10px;background:var(--soft);color:var(--blue);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.badge b{display:block;font-family:var(--display);font-size:1.05rem;line-height:1.2}
+.badge span{color:var(--muted);font-size:.9rem;line-height:1.4;display:block;margin-top:2px}
+@media (max-width:860px){
+  .badges{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .hero,.promise,.fac{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-block:36px;gap:30px}
+  .bar{display:flex}
+}
+</style>
+
+<header><div class="w"><a class="brand" href="#top">Plato&#x27;s Academy (O/A Level)</a><button class="btn" data-wa type="button">WhatsApp us</button></div></header>
+
+<main id="top">
+<div class="w hero">
+  <div>
+    <p class="notice">Admissions open: O Level and A Level, new batch</p>
+    <h1>Small batches. Past papers every week. Teachers who know your name.</h1>
+    <p class="lead">Plato&#x27;s Academy (O/A Level) coaches O and A Level students in Fazlia Colony, Lahore. Classes run in the afternoon so school days stay free, and parents get a progress message every month.</p>
+    <div class="acts">
+      <a class="btn" href="#enquire">Request a call back</a>
+      <a class="btn line" href="#fees">See fees</a>
+    </div>
+    <svg class="art" viewBox="0 0 440 190" role="img" aria-label="Illustration of a stack of books, a graduation cap and a pencil">
+      <ellipse cx="170" cy="172" rx="150" ry="9" fill="var(--soft)"/>
+      <rect x="52" y="128" width="236" height="32" rx="5" fill="var(--blue)"/>
+      <rect x="64" y="96" width="212" height="32" rx="5" fill="var(--hi)"/>
+      <rect x="78" y="64" width="184" height="32" rx="5" fill="var(--ink)"/>
+      <g stroke="var(--surface)" stroke-width="3" stroke-linecap="round" opacity=".55"><path d="M70 144h60M80 112h50M92 80h46"/></g>
+      <path d="M170 18l86 24-86 24-86-24z" fill="var(--blue)"/>
+      <path d="M118 56v22c0 8 24 16 52 16s52-8 52-16V56l-52 14z" fill="var(--ink)"/>
+      <path d="M256 42v38" stroke="var(--hi)" stroke-width="4" stroke-linecap="round"/><circle cx="256" cy="84" r="6" fill="var(--hi)"/>
+      <g transform="rotate(-32 366 100)"><rect x="300" y="92" width="116" height="18" rx="2" fill="var(--hi)"/><rect x="300" y="92" width="22" height="18" rx="2" fill="var(--blue)"/><path d="M416 92l22 9-22 9z" fill="var(--ink)"/></g>
+      <path d="M328 40l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="var(--hi)"/>
+    </svg>
+  </div>
+  <form class="card" id="enquire">
+    <h2>Admission enquiry</h2>
+    <p class="sub">A teacher calls you within one working day.</p>
+    <label for="n">Student's name</label><input id="n" type="text" autocomplete="off" required placeholder="Zainab Ahmed">
+    <label for="p">Parent's WhatsApp number</label><input id="p" type="tel" inputmode="tel" autocomplete="tel" required placeholder="0300 1234567">
+    <label for="l">Level</label>
+    <select id="l"><option>O Level</option><option>A Level (AS)</option><option>A Level (A2)</option></select>
+    <fieldset><legend>Subjects</legend>
+      <div class="chk">
+        <label for="s1"><input id="s1" type="checkbox"> Maths</label>
+        <label for="s2"><input id="s2" type="checkbox"> Physics</label>
+        <label for="s3"><input id="s3" type="checkbox"> Chemistry</label>
+        <label for="s4"><input id="s4" type="checkbox"> Biology</label>
+        <label for="s5"><input id="s5" type="checkbox"> Business</label>
+        <label for="s6"><input id="s6" type="checkbox"> English</label>
+      </div>
+    </fieldset>
+    <button class="btn" type="submit">Request call back</button>
+  </form>
+</div>
+
+<div class="w badges">
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5M15.5 14c3 0 5.5 1.600 5.500 4.500"/></svg><p><b>Small batches</b><span>Twelve students at most.</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.500-5-2-8-2v14c3 0 6 .5 8 2 2-1.500 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg><p><b>Weekly past papers</b><span>Marked and returned in three days.</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><p><b>Monthly parent update</b><span>Attendance, marks and next steps.</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><p><b>Afternoon timings</b><span>2:30 PM to 9:00 PM, Monday to Saturday.</span></p></div>
+</div>
+
+<section id="fees"><div class="w">
+  <h2>Subjects and monthly fees</h2>
+  <p class="intro">Fees are per subject, per month. Take three subjects or more and the lowest fee applies to all of them.</p>
+  <div class="tw"><table class="fees">
+    <thead><tr><th>Subject</th><th>Classes per week</th><th>1 to 2 subjects</th><th>3 or more</th></tr></thead>
+    <tbody>
+      <tr><td>Mathematics</td><td>4</td><td>PKR 7,000</td><td>PKR 6,000</td></tr>
+      <tr><td>Physics</td><td>3</td><td>PKR 6,500</td><td>PKR 5,500</td></tr>
+      <tr><td>Chemistry</td><td>3</td><td>PKR 6,500</td><td>PKR 5,500</td></tr>
+      <tr><td>Biology</td><td>3</td><td>PKR 6,000</td><td>PKR 5,000</td></tr>
+      <tr><td>Business Studies</td><td>3</td><td>PKR 5,500</td><td>PKR 4,500</td></tr>
+      <tr><td>English Language</td><td>2</td><td>PKR 5,000</td><td>PKR 4,000</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Sample fees for this demo.</p>
+</div></section>
+
+<section><div class="w">
+  <h2>How classes run</h2>
+  <p class="intro">Three habits that move grades.</p>
+  <div class="promise">
+    <div><b>Twelve students at most</b><span>Every student gets asked a question in every class.</span></div>
+    <div><b>A past paper every week</b><span>Marked and returned within three days, with the mistakes explained.</span></div>
+    <div><b>A monthly message to parents</b><span>Attendance, test marks and what to work on next.</span></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Your teachers</h2>
+  <p class="intro">Names and subjects below are samples. Your real faculty goes here.</p>
+  <div class="fac">
+    <div><b>Sir Hamza</b><span>Mathematics, O and A Level</span></div>
+    <div><b>Miss Sana</b><span>Biology and Chemistry</span></div>
+    <div><b>Sir Omer</b><span>Business Studies and English</span></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Questions parents ask</h2>
+  <details><summary>Can my child join in the middle of the year?</summary><p>Yes. We test the current level in the first week and give catch-up worksheets so your child can follow the class.</p></details>
+  <details><summary>Do you offer a trial class?</summary><p>The first class is free. If your child does not want to continue, you pay nothing.</p></details>
+  <details><summary>What are the class timings?</summary><p>Monday to Saturday, 2:30 PM to 9:00 PM. Each batch gets a fixed slot so it fits around school.</p></details>
+  <details><summary>How do we pay?</summary><p>Fees are paid monthly by bank transfer, JazzCash or Easypaisa. You receive a receipt on WhatsApp.</p></details>
+</div></section>
+</main>
+
+<footer><div class="w">Draft preview made for Plato&#x27;s Academy (O/A Level) by GrowLahore Digital. Not your official site; name, prices and photos are placeholders until you approve.</div></footer>
+
+<div class="bar"><button class="btn" data-wa type="button">WhatsApp</button><a class="btn line" href="#enquire">Call back</a></div>
+<div id="toast" role="status" hidden></div>
+
+<script>
+const t=document.getElementById('toast');
+function say(m){t.textContent=m;t.hidden=false;clearTimeout(say.k);say.k=setTimeout(()=>{t.hidden=true},4200)}
+document.querySelectorAll('[data-wa]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();say('On your live site this opens WhatsApp with a ready message.')}));
+document.getElementById('enquire').addEventListener('submit',e=>{e.preventDefault();say('Demo only. On your live site these details arrive on your WhatsApp.');e.target.reset()});
+</script>

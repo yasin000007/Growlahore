@@ -1,0 +1,203 @@
+<meta name="robots" content="noindex,nofollow"><title>Leisure Ladies Salon (draft preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: oversized wordmark hero, printed-style service menu with dotted leaders in two columns, bridal packages, enquiry card, hours. Dark-first. */
+:root{
+  --bg:#1A0F19; --surface:#26162A; --ink:#F7ECF1; --muted:#C2A9B8; --rose:#F29DB8; --on-rose:#2A0F1C;
+  --sage:#A9C7A5; --line:#3C2640; color-scheme:dark;
+  --display:'Marcellus','Times New Roman',serif; --body:'Jost','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#FBF1F3; --surface:#FFFFFF; --ink:#2B1426; --muted:#6F5568; --rose:#B3295B; --on-rose:#FFFFFF;
+  --sage:#476B44; --line:#EBD3DB; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#FBF1F3; --surface:#FFFFFF; --ink:#2B1426; --muted:#6F5568; --rose:#B3295B; --on-rose:#FFFFFF;
+  --sage:#476B44; --line:#EBD3DB; color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;font-size:17px;line-height:1.6;padding-bottom:84px}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.05;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.w{width:min(1040px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;font-size:.95rem;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:4px;background:var(--rose);color:var(--on-rose);font:600 1rem var(--body);letter-spacing:.02em;padding:14px 26px;cursor:pointer;text-decoration:none}
+.btn.line{background:transparent;color:var(--ink);border:1px solid var(--muted)}
+.hero{padding-block:44px 64px}
+.hero h1{font-size:clamp(3.6rem,15vw,9.5rem);letter-spacing:-.02em}
+.hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-top:26px}
+.hero p{max-width:26em;font-size:1.2rem;color:var(--muted);font-weight:300}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+section{padding-block:64px;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:10px}
+.intro{color:var(--muted);max-width:34em;margin-bottom:36px;font-weight:300}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:20px 64px}
+.menu h3{font-size:1.35rem;color:var(--rose);margin:10px 0 14px}
+.menu ul{list-style:none;padding:0;margin:0 0 20px}
+.menu li{display:flex;align-items:baseline;gap:10px;padding:6px 0}
+.menu li::after{content:"";order:2;flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px)}
+.menu li span{order:1}
+.menu li b{order:3;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pk div{background:var(--surface);border:1px solid var(--line);padding:26px;border-radius:6px}
+.pk h3{font-size:1.5rem;margin-bottom:6px}
+.pk .pr{color:var(--rose);font-size:1.2rem;margin-bottom:12px}
+.pk p{color:var(--muted);font-size:.97rem;font-weight:300}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:28px}
+label{display:block;font-size:.85rem;font-weight:500;margin:14px 0 6px;color:var(--muted)}
+input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px 14px}
+form .btn{width:100%;margin-top:22px}
+.hrs{list-style:none;padding:0;margin:0}
+.hrs li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.hrs li.today{color:var(--rose);font-weight:600}
+.note{color:var(--muted);font-size:.85rem;margin-top:16px}
+footer{border-top:1px solid var(--line);padding-block:30px;color:var(--muted);font-size:.9rem}
+.bar{position:fixed;left:0;right:0;bottom:0;display:none;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line);z-index:6}
+.bar .btn{flex:1;padding:13px 10px}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);width:min(440px,100% - 32px);background:var(--ink);color:var(--bg);padding:14px 18px;border-radius:6px;font-size:.95rem;z-index:9}
+.art{display:block;width:100%;height:auto;margin-top:34px}
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-bottom:64px}
+.badge{display:flex;gap:12px;align-items:flex-start;padding:4px 0}
+.badge svg{flex:none;width:44px;height:44px;padding:10px;border-radius:50%;border:1px solid var(--rose);color:var(--rose);fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.badge b{display:block;font-family:var(--display);font-weight:400;font-size:1.1rem;line-height:1.2}
+.badge span{color:var(--muted);font-size:.92rem;line-height:1.4;display:block;margin-top:2px;font-weight:300}
+@media (max-width:820px){
+  .badges{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .menu,.pk,.two{grid-template-columns:minmax(0,1fr)}
+  .menu{gap:0}
+  .bar{display:flex}
+  .top span{display:none}
+}
+@media (prefers-reduced-motion:no-preference){.hero h1{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}@keyframes rise{from{opacity:.0;transform:translateY(18px)}}}
+</style>
+
+<div class="w">
+  <div class="top"><b style="font-family:var(--display);font-weight:400;font-size:1.1rem;color:var(--ink)">Bahria Town, Lahore</b><span>Ladies only. Walk-ins welcome, bridal by appointment.</span></div>
+</div>
+
+<main>
+<div class="w hero">
+  <h1>Leisure Ladies Salon</h1>
+  <div class="row">
+    <p>Hair, skin, hands and feet, and bridal work, in a quiet salon run by women, for women.</p>
+    <div class="acts">
+      <button class="btn" data-wa type="button">Book on WhatsApp</button>
+      <a class="btn line" href="#menu">See the menu</a>
+    </div>
+  </div>
+  <svg class="art" viewBox="0 0 960 130" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Line illustration of a hand mirror, flowers and sparkles">
+    <path d="M0 66c80-30 140 30 220 0s140-30 220 0" fill="none" stroke="var(--line)" stroke-width="2"/>
+    <path d="M520 66c80 30 140-30 220 0s140 30 220 0" fill="none" stroke="var(--line)" stroke-width="2"/>
+    <circle cx="480" cy="52" r="36" fill="none" stroke="var(--rose)" stroke-width="3"/>
+    <circle cx="480" cy="52" r="27" fill="none" stroke="var(--rose)" stroke-width="1.2" opacity=".5"/>
+    <path d="M470 38c5-5 12-6 18-3" fill="none" stroke="var(--rose)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M480 88v34" stroke="var(--rose)" stroke-width="7" stroke-linecap="round"/>
+    <g fill="var(--rose)"><path d="M380 30l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path d="M590 76l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" opacity=".8"/></g>
+    <g fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"><path d="M250 100c14-20 14-40 0-60"/><path d="M250 80c10-4 16-10 20-18M250 66c-10-4-16-10-20-18"/><path d="M720 100c14-20 14-40 0-60"/><path d="M720 80c10-4 16-10 20-18M720 66c-10-4-16-10-20-18"/></g>
+    <g fill="var(--sage)" opacity=".9"><circle cx="170" cy="40" r="5"/><circle cx="820" cy="96" r="5"/><circle cx="640" cy="34" r="4"/></g>
+  </svg>
+</div>
+
+<div class="w badges">
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.5A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg><p><b>Ladies only</b><span>A private, comfortable space.</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><p><b>Hygiene first</b><span>Fresh towels and sanitised tools for every client.</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg><p><b>Bridal trials</b><span>Settle the look weeks before the day.</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><p><b>Open every day</b><span>Walk-ins welcome, from 11 AM.</span></p></div>
+</div>
+
+<section id="menu"><div class="w">
+  <h2>Service menu</h2>
+  <p class="intro">Prices in rupees. Hair length and treatment may change the final amount, and we tell you before we start.</p>
+  <div class="menu">
+    <div>
+      <h3>Hair</h3>
+      <ul>
+        <li><span>Haircut and blow-dry</span><b>2,500</b></li>
+        <li><span>Root color touch-up</span><b>5,500</b></li>
+        <li><span>Highlights, from</span><b>12,000</b></li>
+        <li><span>Keratin treatment, from</span><b>12,000</b></li>
+        <li><span>Hair spa and protein wash</span><b>4,000</b></li>
+      </ul>
+      <h3>Skin</h3>
+      <ul>
+        <li><span>Classic facial</span><b>3,500</b></li>
+        <li><span>Hydra facial</span><b>6,500</b></li>
+        <li><span>Threading, face</span><b>800</b></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Hands and feet</h3>
+      <ul>
+        <li><span>Manicure</span><b>1,800</b></li>
+        <li><span>Pedicure</span><b>2,200</b></li>
+        <li><span>Manicure and pedicure</span><b>3,800</b></li>
+      </ul>
+      <h3>Waxing</h3>
+      <ul>
+        <li><span>Arms and legs</span><b>3,000</b></li>
+        <li><span>Full body</span><b>7,000</b></li>
+      </ul>
+      <h3>Makeup</h3>
+      <ul>
+        <li><span>Party makeup and hair</span><b>9,000</b></li>
+        <li><span>Engagement look, from</span><b>18,000</b></li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Sample prices for this demo.</p>
+</div></section>
+
+<section id="bridal"><div class="w">
+  <h2>Bridal</h2>
+  <p class="intro">A trial session comes first, so the look is settled weeks before the day. Dates fill early in wedding season.</p>
+  <div class="pk">
+    <div><h3>Mehndi</h3><p class="pr">from PKR 25,000</p><p>Makeup, hair styling, dupatta setting and a touch-up kit.</p></div>
+    <div><h3>Barat</h3><p class="pr">from PKR 60,000</p><p>Trial session, full bridal makeup, hair and skin prep the week before.</p></div>
+    <div><h3>Walima</h3><p class="pr">from PKR 35,000</p><p>Soft glam makeup, hair and an on-site artist for touch-ups.</p></div>
+  </div>
+</div></section>
+
+<section id="book"><div class="w two">
+  <form class="card" id="f">
+    <h2 style="font-size:1.8rem">Bridal enquiry</h2>
+    <p class="intro" style="margin-bottom:6px">Tell us the date and we reply with availability.</p>
+    <label for="n">Your name</label><input id="n" autocomplete="name" required placeholder="Hira Malik">
+    <label for="p">WhatsApp number</label><input id="p" inputmode="tel" autocomplete="tel" required placeholder="0300 1234567">
+    <label for="e">Event</label>
+    <select id="e"><option>Mehndi</option><option>Barat</option><option>Walima</option><option>Engagement</option><option>Party or other</option></select>
+    <label for="dt">Event date</label><input id="dt" type="date">
+    <button class="btn" type="submit">Send enquiry</button>
+  </form>
+  <div>
+    <h2>Hours</h2>
+    <p class="intro">Open every day.</p>
+    <ul class="hrs" id="hrs">
+      <li data-d="1"><span>Monday</span><span>11:00 AM to 8:00 PM</span></li>
+      <li data-d="2"><span>Tuesday</span><span>11:00 AM to 8:00 PM</span></li>
+      <li data-d="3"><span>Wednesday</span><span>11:00 AM to 8:00 PM</span></li>
+      <li data-d="4"><span>Thursday</span><span>11:00 AM to 8:00 PM</span></li>
+      <li data-d="5"><span>Friday</span><span>11:00 AM to 8:00 PM</span></li>
+      <li data-d="6"><span>Saturday</span><span>11:00 AM to 9:00 PM</span></li>
+      <li data-d="0"><span>Sunday</span><span>11:00 AM to 9:00 PM</span></li>
+    </ul>
+    <p class="note">Plaza address, Commercial Area, Bahria Town (sample).</p>
+    <p style="margin-top:18px"><a class="btn line" href="https://www.google.com/maps/search/?api=1&query=beauty+salon+Bahria+Town+Lahore">Open in Google Maps</a></p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="w">Draft preview made for Leisure Ladies Salon by GrowLahore Digital. Not your official site; name, prices and photos are placeholders until you approve.</div></footer>
+
+<div class="bar"><button class="btn" data-wa type="button">WhatsApp</button><a class="btn line" href="#book">Bridal enquiry</a></div>
+<div id="toast" role="status" hidden></div>
+
+<script>
+const t=document.getElementById('toast');
+function say(m){t.textContent=m;t.hidden=false;clearTimeout(say.k);say.k=setTimeout(()=>{t.hidden=true},4200)}
+document.querySelectorAll('[data-wa]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();say('On your live site this opens WhatsApp with a ready message.')}));
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();say('Demo only. On your live site these details arrive on your WhatsApp.');e.target.reset()});
+const r=document.querySelector('#hrs li[data-d="'+new Date().getDay()+'"]');if(r)r.classList.add('today');
+</script>

@@ -1,0 +1,178 @@
+<meta name="robots" content="noindex,nofollow"><title>Physiques Fitness (draft preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: loud condensed headline with free-trial form beside it, weekly class timetable grid, membership priced like a loaded barbell, trainers, hours bar */
+:root{
+  --bg:#ECEEE9; --surface:#FFFFFF; --ink:#14150F; --muted:#575A50; --hot:#E8420F; --on-hot:#FFFFFF;
+  --plate:#C9CDC3; --line:#D2D5CC; --lime:#DCE86A;
+  --display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif; --body:'Barlow','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12130E; --surface:#1C1E16; --ink:#F1F2EC; --muted:#A5A99B; --hot:#FF6A3D; --on-hot:#1A0A03;
+  --plate:#34372C; --line:#2C2F25; --lime:#DCE86A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12130E; --surface:#1C1E16; --ink:#F1F2EC; --muted:#A5A99B; --hot:#FF6A3D; --on-hot:#1A0A03;
+  --plate:#34372C; --line:#2C2F25; --lime:#DCE86A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;padding-bottom:84px}
+h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;margin:0;line-height:.95;letter-spacing:.005em}
+p{margin:0}
+a{color:inherit}
+.w{width:min(1100px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--hot);outline-offset:3px}
+.strip{background:var(--ink);color:var(--bg);font-weight:600;font-size:.92rem}
+.strip .w{display:flex;justify-content:space-between;gap:16px;padding-block:9px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;background:var(--hot);color:var(--on-hot);font:700 1.05rem var(--body);text-transform:uppercase;letter-spacing:.04em;padding:15px 26px;cursor:pointer;text-decoration:none;clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%)}
+.btn.out{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink);clip-path:none}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:44px;padding-block:52px 60px;align-items:center}
+.hero h1{font-size:clamp(3.6rem,11vw,8.2rem)}
+.hero h1 em{font-style:normal;color:var(--hot)}
+.hero .lead{font-size:1.2rem;color:var(--muted);max-width:30em;margin-top:22px}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.card{background:var(--surface);border:2px solid var(--ink);padding:26px}
+.card h2{font-size:2rem;margin-bottom:6px}
+.card .sub{color:var(--muted);font-size:.95rem;margin-bottom:6px}
+label{display:block;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin:14px 0 6px}
+input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);padding:12px 14px;border-radius:0}
+form .btn{width:100%;margin-top:20px}
+section{padding-block:60px;border-top:2px solid var(--ink)}
+section h2{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:10px}
+.intro{color:var(--muted);max-width:34em;margin-bottom:28px}
+.tt-wrap{overflow-x:auto}
+.tt{width:100%;min-width:640px;border-collapse:collapse;font-size:.95rem}
+.tt th,.tt td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;background:var(--surface)}
+.tt th{background:var(--ink);color:var(--bg);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.82rem}
+.tt th.today{background:var(--hot);color:var(--on-hot)}
+.tt td.t{font-weight:700;white-space:nowrap;background:var(--bg)}
+.tag{display:inline-block;background:var(--lime);color:#1B1D0E;font-size:.74rem;font-weight:700;padding:1px 7px;margin-top:4px}
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:end}
+.pl{background:var(--surface);border:2px solid var(--ink);padding:24px;position:relative}
+.pl.best{background:var(--hot);color:var(--on-hot);border-color:var(--hot)}
+.pl h3{font-size:1.5rem}
+.pl .pr{font-family:var(--display);font-weight:900;font-size:3.2rem;line-height:1;margin:12px 0 6px;font-variant-numeric:tabular-nums}
+.pl small{display:block;opacity:.8}
+.pl ul{margin:16px 0 0;padding-left:18px}
+.pl.s1{padding-block:20px}.pl.s3{padding-block:34px}
+.crew{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.crew div{display:flex;gap:16px;align-items:center}
+.ini{flex:none;width:64px;height:64px;display:grid;place-items:center;background:var(--plate);font-family:var(--display);font-weight:900;font-size:1.7rem}
+.crew b{display:block;font-size:1.1rem}
+.crew span{color:var(--muted);font-size:.95rem}
+.note{color:var(--muted);font-size:.85rem;margin-top:16px}
+footer{border-top:2px solid var(--ink);padding-block:30px;color:var(--muted);font-size:.9rem}
+.bar{position:fixed;left:0;right:0;bottom:0;display:none;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:2px solid var(--ink);z-index:6}
+.bar .btn{flex:1;padding:13px 10px}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);width:min(440px,100% - 32px);background:var(--ink);color:var(--bg);padding:14px 18px;font-size:.95rem;z-index:9}
+.art{display:block;width:min(100%,460px);height:auto;margin-top:34px}
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-block:2px solid var(--ink);margin-bottom:0}
+.badge{display:flex;gap:12px;align-items:center;padding:18px 18px;border-right:2px solid var(--ink)}
+.badge:last-child{border-right:0}
+.badge svg{flex:none;width:38px;height:38px;color:var(--hot);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter}
+.badge b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.15rem;line-height:1}
+.badge span{color:var(--muted);font-size:.88rem;line-height:1.3;display:block;margin-top:3px}
+@media (max-width:860px){
+  .badges{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .badge{border-bottom:2px solid var(--ink)}
+  .badge:nth-child(2n){border-right:0}
+  .badge:nth-last-child(-n+2){border-bottom:0}
+  .hero,.plates,.crew{grid-template-columns:minmax(0,1fr)}
+  .pl.s1,.pl.s3{padding-block:24px}
+  .bar{display:flex}
+}
+</style>
+
+<div class="strip"><div class="w"><span>Open 6:00 AM to 12:00 AM, Monday to Saturday</span><span>Wapda Town, Lahore</span></div></div>
+
+<main>
+<div class="w hero">
+  <div>
+    <h1>Lift. <em>Sweat.</em> Repeat.</h1>
+    <p class="lead">A neighborhood gym with proper racks, daily classes, and trainers who count your reps. Try three days free before you pay anything.</p>
+    <div class="acts">
+      <a class="btn" href="#trial">Claim 3 free days</a>
+      <button class="btn out" data-wa type="button">WhatsApp us</button>
+    </div>
+    <svg class="art" viewBox="0 0 460 140" role="img" aria-label="Illustration of a loaded barbell">
+      <rect x="10" y="64" width="440" height="12" rx="6" fill="var(--ink)"/>
+      <rect x="64" y="24" width="22" height="92" rx="4" fill="var(--hot)"/>
+      <rect x="90" y="36" width="16" height="68" rx="4" fill="var(--ink)"/>
+      <rect x="110" y="46" width="12" height="48" rx="3" fill="var(--plate)"/>
+      <rect x="126" y="58" width="10" height="24" rx="2" fill="var(--ink)"/>
+      <rect x="374" y="24" width="22" height="92" rx="4" fill="var(--hot)"/>
+      <rect x="354" y="36" width="16" height="68" rx="4" fill="var(--ink)"/>
+      <rect x="338" y="46" width="12" height="48" rx="3" fill="var(--plate)"/>
+      <rect x="324" y="58" width="10" height="24" rx="2" fill="var(--ink)"/>
+      <rect x="196" y="60" width="68" height="20" rx="3" fill="var(--plate)"/>
+      <path d="M205 60v20M215 60v20M225 60v20M235 60v20M245 60v20M255 60v20" stroke="var(--ink)" stroke-width="1.5" opacity=".4"/>
+    </svg>
+  </div>
+  <form class="card" id="trial">
+    <h2>3-day free pass</h2>
+    <p class="sub">No card, no joining fee.</p>
+    <label for="n">Name</label><input id="n" autocomplete="name" required placeholder="Usman Ali">
+    <label for="p">WhatsApp number</label><input id="p" inputmode="tel" autocomplete="tel" required placeholder="0300 1234567">
+    <label for="g">Your goal</label>
+    <select id="g"><option>Lose weight</option><option>Build muscle</option><option>Get fitter</option><option>Rehab after injury</option></select>
+    <button class="btn" type="submit">Get my pass</button>
+  </form>
+</div>
+
+<div class="w badges">
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg><p><b>Real racks</b><span>Free weights and machines</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><p><b>Daily classes</b><span>Included in every plan</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.5A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg><p><b>Women-only slots</b><span>Zumba three days a week</span></p></div>
+  <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><p><b>6 AM to midnight</b><span>Monday to Saturday</span></p></div>
+</div>
+
+<section id="classes"><div class="w">
+  <h2>Weekly classes</h2>
+  <p class="intro">Floor access is open all day. Classes below are included in every membership.</p>
+  <div class="tt-wrap"><table class="tt" id="tt">
+    <thead><tr><th></th><th data-d="1">Mon</th><th data-d="2">Tue</th><th data-d="3">Wed</th><th data-d="4">Thu</th><th data-d="5">Fri</th><th data-d="6">Sat</th></tr></thead>
+    <tbody>
+      <tr><td class="t">7:00 AM</td><td>Strength</td><td>HIIT</td><td>Strength</td><td>HIIT</td><td>Strength</td><td>Mobility</td></tr>
+      <tr><td class="t">11:00 AM</td><td>Zumba<br><span class="tag">Women only</span></td><td>Core</td><td>Zumba<br><span class="tag">Women only</span></td><td>Core</td><td>Zumba<br><span class="tag">Women only</span></td><td>Cardio</td></tr>
+      <tr><td class="t">6:00 PM</td><td>Cardio</td><td>Strength</td><td>HIIT</td><td>Strength</td><td>Cardio</td><td>HIIT</td></tr>
+      <tr><td class="t">8:00 PM</td><td>Powerlifting</td><td>Boxing basics</td><td>Powerlifting</td><td>Boxing basics</td><td>Open floor</td><td>Open floor</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Sample timetable for this demo.</p>
+</div></section>
+
+<section id="plans"><div class="w">
+  <h2>Membership</h2>
+  <p class="intro">The longer you commit, the less you pay per month. All plans include classes, lockers and showers.</p>
+  <div class="plates">
+    <div class="pl s1"><h3>1 month</h3><div class="pr">6,000</div><small>PKR, 6,000 per month</small><ul><li>Full floor access</li><li>All classes</li></ul></div>
+    <div class="pl s2"><h3>3 months</h3><div class="pr">16,000</div><small>PKR, about 5,300 per month</small><ul><li>Full floor access</li><li>All classes</li><li>One free training session</li></ul></div>
+    <div class="pl best s3"><h3>12 months</h3><div class="pr">54,000</div><small>PKR, 4,500 per month</small><ul><li>Two free personal training sessions</li><li>Body composition check each quarter</li><li>Freeze up to 30 days</li></ul></div>
+  </div>
+  <p class="note">Sample prices for this demo.</p>
+</div></section>
+
+<section id="crew"><div class="w">
+  <h2>Your trainers</h2>
+  <p class="intro">Ask for a free form check on your first day.</p>
+  <div class="crew">
+    <div><span class="ini">BR</span><p><b>Coach Bilal</b><span>Strength and fat loss</span></p></div>
+    <div><span class="ini">HA</span><p><b>Coach Hafsa</b><span>Women's training and mobility</span></p></div>
+    <div><span class="ini">UI</span><p><b>Coach Usman</b><span>Nutrition and diet plans</span></p></div>
+  </div>
+  <p class="note">Sample names. Your real team and photos go here on the live site.</p>
+</div></section>
+</main>
+
+<footer><div class="w">Draft preview made for Physiques Fitness by GrowLahore Digital. Not your official site; name, prices and photos are placeholders until you approve.</div></footer>
+
+<div class="bar"><button class="btn" data-wa type="button">WhatsApp</button><a class="btn out" href="#trial">Free pass</a></div>
+<div id="toast" role="status" hidden></div>
+
+<script>
+const t=document.getElementById('toast');
+function say(m){t.textContent=m;t.hidden=false;clearTimeout(say.k);say.k=setTimeout(()=>{t.hidden=true},4200)}
+document.querySelectorAll('[data-wa]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();say('On your live site this opens WhatsApp with a ready message.')}));
+document.getElementById('trial').addEventListener('submit',e=>{e.preventDefault();say('Demo only. On your live site these details arrive on your WhatsApp.');e.target.reset()});
+const th=document.querySelector('#tt th[data-d="'+new Date().getDay()+'"]');if(th)th.classList.add('today');
+</script>
