@@ -81,7 +81,56 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
   .bar{display:flex}
 }
 @media (prefers-reduced-motion:no-preference){.status i{animation:p 2.4s ease-in-out infinite}@keyframes p{50%{opacity:.35}}}
+
+.fxbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--teal);z-index:99;transition:width .1s linear}
+@keyframes fxUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes fxTwinkle{0%,100%{opacity:1;transform:scale(1) rotate(0)}50%{opacity:.35;transform:scale(.7) rotate(25deg)}}
+@keyframes fxSpin{to{transform:rotate(360deg)}}
+@keyframes fxPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes fxLift{0%,100%{transform:translateY(0)}45%,55%{transform:translateY(-14px)}}
+@keyframes fxSway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
+@keyframes fxMarq{to{transform:translateX(-50%)}}
+@keyframes fxDot{0%{box-shadow:0 0 0 0 var(--teal)}100%{box-shadow:0 0 0 12px transparent}}
+.hero h1,.hero .lead,.hero .rate,.hero .cta-row,.hero .status,.hero .card,.hero>div>p:first-child{animation:fxUp .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .status{animation-delay:.05s}.hero h1{animation-delay:.15s}.hero .lead{animation-delay:.3s}.hero .rate{animation-delay:.38s}.hero .cta-row{animation-delay:.45s}.hero .card{animation-delay:.35s}
+.art{animation:fxFloat 6s ease-in-out infinite;transform-origin:center}
+.art [fill="var(--sun)"],.art [fill="var(--hi)"],.art [fill="var(--lime)"]{transform-box:fill-box;transform-origin:center;animation:fxTwinkle 2.6s ease-in-out infinite}
+.art [stroke-dasharray]{transform-box:fill-box;transform-origin:center;animation:fxSpin 30s linear infinite}
+.art-gym{animation:fxLift 2.4s ease-in-out infinite}.art-salon{animation:fxSway 7s ease-in-out infinite}
+.art-physio rect{transform-box:fill-box;transform-origin:center;animation:fxPulse 2.4s ease-in-out infinite}
+.art-physio rect:nth-of-type(2){animation-delay:.2s}.art-physio rect:nth-of-type(3){animation-delay:.4s}.art-physio rect:nth-of-type(4){animation-delay:.6s}.art-physio rect:nth-of-type(5){animation-delay:.8s}
+html.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+html.js .rv.in{opacity:1;transform:none}
+.btn{position:relative;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease;pointer-events:none}
+.btn:hover::after{left:140%}
+.card,.badge,.plates>*,.steps li,.quote{transition:transform .25s ease,box-shadow .25s ease}
+.badge:hover,.plates>*:hover,.steps li:hover,.quote:hover{transform:translateY(-4px)}
+.prices tr{transition:background .2s ease}.prices tr:hover{background:color-mix(in srgb,var(--teal) 9%,transparent)}
+.fxmq{overflow:hidden;border-block:1px solid var(--line);padding:14px 0;margin:8px 0;background:color-mix(in srgb,var(--teal) 7%,transparent)}
+.fxmq div{display:flex;gap:44px;width:max-content;animation:fxMarq 28s linear infinite}
+.fxmq:hover div{animation-play-state:paused}
+.fxmq span{font-family:var(--display);font-size:1.25rem;white-space:nowrap;display:flex;align-items:center;gap:44px}
+.fxmq span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.fxstats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-block:26px}
+.fxstats>div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+.fxstats b{display:block;font-family:var(--display);font-size:clamp(1.5rem,5vw,2.3rem);color:var(--teal);line-height:1.1}
+.fxstats span{font-size:.9rem;color:var(--muted)}
+.fxstats i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--teal);margin-right:8px;animation:fxDot 1.6s infinite}
+@media (max-width:560px){.fxstats{grid-template-columns:1fr 1fr 1fr;gap:8px}.fxstats>div{padding:12px 6px}.fxstats span{font-size:.78rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html.js .rv{opacity:1;transform:none}}
+
+.fxadd{padding-block:48px}.fxadd .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+.fxadd .g div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;transition:transform .25s ease,box-shadow .25s ease}
+.fxadd .g div:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,.12)}
+.fxadd b{display:block;font-family:var(--display);font-size:1.1rem;margin-bottom:6px;color:var(--teal)}.fxadd span{color:var(--muted);font-size:.95rem}
+.fxadd p.n{color:var(--muted);margin-top:16px}
 :root{--teal:#2F7D32;--mint:#DDEFD9;}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--teal:#7BD17F;--mint:#16341A;}}:root[data-theme="dark"]{--teal:#7BD17F;--mint:#16341A;}.rate{margin:10px 0 0;font-weight:700;color:var(--teal)}</style>
+<div class="fxbar" aria-hidden="true"></div>
+
 
 <header><div class="w">
   <a class="brand" href="#top">Dr Hasan Raza Hashmi (skin/laser)</a>
@@ -99,7 +148,7 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
       <button class="btn" data-wa type="button">Message on WhatsApp</button>
       <a class="btn ghost" href="#treatments">See prices</a>
     </div>
-    <svg class="art" viewBox="0 0 430 210" role="img" aria-label="Illustration of a water drop">
+    <svg class="art art-skin" viewBox="0 0 430 210" role="img" aria-label="Illustration of a water drop">
       <circle cx="120" cy="108" r="92" fill="var(--mint)"/>
       <circle cx="120" cy="108" r="66" fill="none" stroke="var(--teal)" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round" opacity=".5"/>
       <path d="M120 36c-30 40-52 64-52 94a52 52 0 00104 0c0-30-22-54-52-94z" fill="var(--surface)" stroke="var(--teal)" stroke-width="5" stroke-linejoin="round"/>
@@ -131,6 +180,8 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
   <div class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><p><b>Hygiene first</b><span>Single-use items and cleaned equipment every visit.</span></p></div>
 </div>
 
+<div class="fxmq" aria-hidden="true"><div><span>Acne care</span><span>Laser hair removal</span><span>HydraFacial</span><span>Pigmentation</span><span>Skin consultation</span><span>Mole removal</span><span>Acne care</span><span>Laser hair removal</span><span>HydraFacial</span><span>Pigmentation</span><span>Skin consultation</span><span>Mole removal</span></div></div>
+<div class="w fxstats"><div><b>New</b><span>on Google</span></div><div><b>Mon-Sat</b><span>open 6 days</span></div><div><b><i></i>WhatsApp</b><span>replies fast</span></div></div>
 <section id="treatments"><div class="w">
   <h2>Treatments and prices</h2>
   <p class="intro">Ranges below cover most cases. After your check-up you get the exact figure in writing before we begin.</p>
@@ -170,6 +221,7 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
 </div></section>
 </main>
 
+<section class="fxadd"><div class="w"><h2>Also available: software and automation</h2><p class="intro">Beyond the website, we can set up tools that save you time. Quoted after a short chat on WhatsApp.</p><div class="g"><div><b>Appointment reminders</b><span>Patients get a WhatsApp reminder the day before. Fewer no-shows.</span></div><div><b>Patient records</b><span>Simple notes and treatment history, searchable on your phone.</span></div><div><b>Review requests</b><span>A message after each visit asks happy patients for a Google review.</span></div><div><b>After-hours auto-reply</b><span>Closed? Customers still get hours, prices and a booking link.</span></div></div><p class="n">Need something else? Tell us the task you repeat every day and we will look at automating it.</p></div></section>
 <footer><div class="w">Draft preview made for Dr Hasan Raza Hashmi (skin/laser) by GrowLahore Digital. Not your official site; name, prices and photos are placeholders until you approve.</div></footer>
 
 <div class="bar"><button class="btn" data-wa type="button">WhatsApp</button><a class="btn ghost" href="#book">Book a visit</a></div>
@@ -184,4 +236,17 @@ const now=new Date(),day=(now.getDay()+6)%7,hr=now.getHours()+now.getMinutes()/6
 const row=document.querySelector('#ht tr[data-d="'+day+'"]');if(row)row.classList.add('today');
 const st=document.getElementById('status');
 if(day<6&&hr>=12&&hr<21){st.classList.add('open');st.lastElementChild.textContent='Open now until 9:00 PM'}
+</script>
+<script>
+(function(){var d=document,h=d.documentElement;h.classList.add('js');
+var sel='section .w>*:not(.steps):not(.plates):not(.two),.two>*,.badges .badge,.steps li,.plates>*,.fxstats>div,.fxmq';
+var els=[].slice.call(d.querySelectorAll(sel));
+els.forEach(function(e){e.classList.add('rv');var p=e.parentElement,sibs=[].slice.call(p.children).indexOf(e);
+if(p.classList.contains('steps')||p.classList.contains('plates')||p.classList.contains('badges')||p.classList.contains('fxstats'))e.style.setProperty('--d',(sibs*.1)+'s')});
+function count(el){var t=parseFloat(el.dataset.count),dec=+el.dataset.dec||0,s=null;
+function f(ts){if(!s)s=ts;var k=Math.min((ts-s)/1400,1),v=t*(1-Math.pow(1-k,3));el.textContent=v.toFixed(dec);if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');[].forEach.call(x.target.querySelectorAll('[data-count]'),count);io.unobserve(x.target)}})},{threshold:.12});
+els.forEach(function(e){io.observe(e)})}else{els.forEach(function(e){e.classList.add('in');[].forEach.call(e.querySelectorAll('[data-count]'),count)})}
+var bar=d.querySelector('.fxbar');function sc(){if(!bar)return;var m=h.scrollHeight-innerHeight;bar.style.width=(m>0?scrollY/m*100:0)+'%'}addEventListener('scroll',sc,{passive:true});sc();
+})();
 </script>
